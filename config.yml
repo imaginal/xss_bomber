@@ -1,0 +1,34 @@
+database:
+  host: 127.0.0.1
+  port: 3306
+  user: root
+  password: TESTxTEST
+  database: test_xss
+columns:
+  types:
+    - char
+    - varchar
+    - text
+    - blob
+  deny:
+    - username
+    - auth_key
+    - password
+    - migration.version
+  json:
+    - activity_log.data
+update:
+  update_factor: 1.0
+  append_before: True
+  append_after: True
+  replace_space: True
+  replace_tail: True
+  replace_null: False
+  replace_all: False
+  json_before: True
+  json_after: True
+limits:
+  errors: 50
+  update: 1000
+payloads:
+  - xss-payloads.txt
